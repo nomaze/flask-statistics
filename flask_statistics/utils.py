@@ -28,8 +28,7 @@ class StatisticsQueries:
         start_date: datetime.datetime,
         end_date: datetime.datetime
     ) -> int:
-        query = (self.db.session.query(self.model)
-                 .group_by(self.model.remote_address))
+        query = self.model.query #.group_by(self.model.remote_address))
 
         query = self._add_date_filter_to_query(query,
                                                start_date,
